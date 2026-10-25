@@ -41,3 +41,17 @@ jobs:
           name: windows-portable
           path: dist/*.zip
           if-no-files-found: error
+
+      - name: Create release and upload packages
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.0
+          name: 超级计算器 v1.0.0
+          body: |
+            - 安装版：超级计算器 Setup 1.0.0.exe（向导安装、可选路径、可卸载）
+            - 绿色版：超级计算器 1.0.0.zip（解压即用，免安装）
+          files: |
+            dist/*.exe
+            dist/*.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
