@@ -1,0 +1,17 @@
+{
+  "name": "super-calculator",
+  "productName": "超级计算器",
+  "version": "1.0.0",
+  "description": "多功能计算器：标准计算、科学计算、汇率转换",
+  "main": "main.js",
+  "author": "ZCode",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis --config builder.js"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  }
+}
