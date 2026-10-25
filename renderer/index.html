@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' https://open.er-api.com https://api.exchangerate-api.com" />
+  <title>超级计算器</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 顶部标签 -->
+  <nav class="tabs">
+    <button class="tab active" data-tab="standard">标准</button>
+    <button class="tab" data-tab="scientific">科学</button>
+    <button class="tab" data-tab="rate">汇率</button>
+  </nav>
+
+  <!-- ============ 标准计算器 ============ -->
+  <section id="panel-standard" class="panel active">
+    <div class="display">
+      <div class="expr" id="std-expr">&nbsp;</div>
+      <div class="result" id="std-result">0</div>
+    </div>
+    <div class="keys" id="std-keys">
+      <button class="key fn" data-k="C">C</button>
+      <button class="key fn" data-k="CE">CE</button>
+      <button class="key fn" data-k="BACK">⌫</button>
+      <button class="key op" data-k="/">÷</button>
+
+      <button class="key" data-k="7">7</button>
+      <button class="key" data-k="8">8</button>
+      <button class="key" data-k="9">9</button>
+      <button class="key op" data-k="*">×</button>
+
+      <button class="key" data-k="4">4</button>
+      <button class="key" data-k="5">5</button>
+      <button class="key" data-k="6">6</button>
+      <button class="key op" data-k="-">−</button>
+
+      <button class="key" data-k="1">1</button>
+      <button class="key" data-k="2">2</button>
+      <button class="key" data-k="3">3</button>
+      <button class="key op" data-k="+">+</button>
+
+      <button class="key" data-k="NEG">±</button>
+      <button class="key" data-k="0">0</button>
+      <button class="key" data-k=".">.</button>
+      <button class="key eq" data-k="=">=</button>
+    </div>
+  </section>
+
+  <!-- ============ 科学计算器 ============ -->
+  <section id="panel-scientific" class="panel">
+    <div class="display">
+      <div class="expr" id="sci-expr">&nbsp;</div>
+      <div class="result" id="sci-result">0</div>
+    </div>
+    <div class="keys sci" id="sci-keys">
+      <button class="key fn" data-k="sin">sin</button>
+      <button class="key fn" data-k="cos">cos</button>
+      <button class="key fn" data-k="tan">tan</button>
+      <button class="key fn" data-k="BACK">⌫</button>
+
+      <button class="key fn" data-k="ln">ln</button>
+      <button class="key fn" data-k="log">log</button>
+      <button class="key fn" data-k="sqrt">√</button>
+      <button class="key op" data-k="/">÷</button>
+
+      <button class="key fn" data-k="^">xʸ</button>
+      <button class="key fn" data-k="sq">x²</button>
+      <button class="key fn" data-k="pi">π</button>
+      <button class="key op" data-k="*">×</button>
+
+      <button class="key" data-k="7">7</button>
+      <button class="key" data-k="8">8</button>
+      <button class="key" data-k="9">9</button>
+      <button class="key op" data-k="-">−</button>
+
+      <button class="key" data-k="4">4</button>
+      <button class="key" data-k="5">5</button>
+      <button class="key" data-k="6">6</button>
+      <button class="key op" data-k="+">+</button>
+
+      <button class="key" data-k="1">1</button>
+      <button class="key" data-k="2">2</button>
+      <button class="key" data-k="3">3</button>
+      <button class="key fn" data-k="NEG">±</button>
+
+      <button class="key fn" data-k="C">C</button>
+      <button class="key" data-k="0">0</button>
+      <button class="key" data-k=".">.</button>
+      <button class="key eq" data-k="=">=</button>
+    </div>
+  </section>
+
+  <!-- ============ 汇率转换 ============ -->
+  <section id="panel-rate" class="panel">
+    <div class="rate-box">
+      <div class="rate-status" id="rate-status">正在获取最新汇率…</div>
+
+      <div class="rate-row">
+        <select id="from-currency" class="currency-select"></select>
+        <input id="from-amount" class="amount-input" type="text" inputmode="decimal" value="100" />
+      </div>
+      <div class="rate-swap">
+        <button id="swap-btn" title="交换币种">⇅ 交换</button>
+      </div>
+      <div class="rate-row">
+        <select id="to-currency" class="currency-select"></select>
+        <input id="to-amount" class="amount-input" type="text" readonly placeholder="结果" />
+      </div>
+
+      <div class="rate-info" id="rate-info">&nbsp;</div>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
