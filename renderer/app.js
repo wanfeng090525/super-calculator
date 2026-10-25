@@ -15,7 +15,7 @@ document.querySelectorAll('.tab').forEach((tab) => {
 
 /* ================= 计算器核心 ================= */
 function makeCalculator(state, display) {
-  state = state || { cur: '0', prev: null, op: null, justEvaluated: false };
+  state = Object.assign({ cur: '0', prev: null, op: null, justEvaluated: false }, state || {});
 
   const fmt = (n) => {
     if (n === 'Error' || n === Infinity || n === -Infinity || Number.isNaN(n)) return 'Error';
