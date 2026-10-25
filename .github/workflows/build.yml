@@ -34,3 +34,10 @@ jobs:
           name: windows-installer
           path: dist/*.exe
           if-no-files-found: error
+
+      - name: Upload portable zip artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-portable
+          path: dist/*.zip
+          if-no-files-found: error

@@ -17,7 +17,10 @@ module.exports = {
   ],
   win: {
     icon: 'build/icon.ico',
-    target: [{ target: 'nsis', arch: ['x64'] }]
+    target: [
+      { target: 'nsis', arch: ['x64'] },   // 安装版：向导安装、可选路径、可卸载
+      { target: 'zip', arch: ['x64'] }     // 绿色版：解压即用，不依赖系统 TEMP
+    ]
   },
   nsis: {
     oneClick: false,                          // 非一键安装 → 向导式安装
